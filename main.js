@@ -1,10 +1,11 @@
-const uid = "";
-const cid = "";
-const token = "";
+const uid = ""; //ur user id
+const cid = ""; //channel id
+const token = ""; //your token
 const cooldown = 120000;
 
+
 function deleteMessage(messageId) {
-  return fetch(`https://discord.com/api/v9/channels/${cid}/messages/${messageId}`, {
+  fetch(`https://discord.com/api/v9/channels/${cid}/messages/${messageId}`, {
     headers: {
       authorization: token
     },
@@ -29,6 +30,7 @@ function start() {
       authorization: token
     },
     method: "GET"
+    
   })
     .then(response => response.json())
     .then(data => {
@@ -65,5 +67,4 @@ function start() {
       deleteFunction();
     });
 }
-
 start();
